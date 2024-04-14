@@ -5,25 +5,46 @@
 ## script to build lib
 ##
 
-SRC		=	string_init.c		\
-			string_destroy.c	\
+STRING_SRC	=	src/string_init.c		\
+				src/string_destroy.c	\
+				
+TEST_SRC	=	tests/at.c				\
+				tests/append.c			\
+				tests/assign.c			\
+				tests/c_str.c			\
+				tests/compare.c			\
+				tests/copy.c			\
 
-OBJ		=    $(SRC:.c=.o)
+NAME		=	string
 
-NAME	=    libstring.a
+TEST_NAME 	=	string_tests
 
-all:    $(NAME)
+OBJS		=	$(STRING_SRC:.c=.o)
 
-$(NAME):    $(OBJ)
-	ar rc  $(NAME) $(OBJ)
-	mv  $(NAME) ../
-	cp string.h ../../include/
-	$(MAKE) clean
+TEST_OBJS 	= $(STRING_SRC:.c=.o) $(TEST_SRC:.c=.o)
+
+CC	= gcc
+
+RM	= rm -f
+
+CFLAGS = -Wall -Wextra -g3 -I ./include/
+
+TEST_FLAGS = -I ./include/ -lcriterion;
+
+all:	$(NAME) $(TEST_NAME)
+
+$(NAME):	$(OBJS)
+	$(CC) -o $(NAME) $(OBJS) $(CFLAGS)
+
+$(TEST_NAME):	$(TEST_OBJS)
+	$(CC) -o $(TEST_NAME) $(TEST_OBJS) $(CFLAGS) $(TEST_FLAGS)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJS) $(TEST_OBJS)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:	clean
+	$(RM) $(NAME) $(TEST_NAME)
 
-re: fclean all
+re:		fclean all
+
+.PHONY:	all clean fclean re
