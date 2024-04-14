@@ -14,6 +14,10 @@ TEST_SRC	=	tests/at.c				\
 				tests/c_str.c			\
 				tests/compare.c			\
 				tests/copy.c			\
+				tests/empty.c			\
+				tests/find.c			\
+				tests/insert.c			\
+				tests/size.c			\
 
 NAME		=	string
 

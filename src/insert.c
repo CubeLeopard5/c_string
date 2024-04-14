@@ -3,7 +3,7 @@
 static string_t *insert_c(string_t *this, size_t pos, const char *str);
 static string_t *insert_s(string_t *this, size_t pos, const string_t *str);
 
-string_t *insert_c(string_t *this, size_t pos, const char *str)
+static string_t *insert_c(string_t *this, size_t pos, const char *str)
 {
     char *str2;
 
@@ -20,7 +20,7 @@ string_t *insert_c(string_t *this, size_t pos, const char *str)
     return this;
 }
 
-string_t *insert_s(string_t *this, size_t pos, const string_t *str)
+static string_t *insert_s(string_t *this, size_t pos, const string_t *str)
 {
     char *str2;
 
