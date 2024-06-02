@@ -18,6 +18,14 @@
 #include "find.c"
 #include "insert.c"
 #include "to_int.c"
+#include "starts_with.c"
+#include "ends_with.c"
+#include "to_lower.c"
+#include "to_upper.c"
+#include "trim.c"
+#include "substring.c"
+#include "reverse.c"
+#include "replace.c"
 
 void init_struct(string_t *this)
 {
@@ -38,6 +46,14 @@ void init_struct(string_t *this)
     this->insert_c = &insert_c;
     this->insert_s = &insert_s;
     this->to_int = &to_int;
+    this->starts_with = &starts_with;
+    this->ends_with = &ends_with;
+    this->to_lower = &to_lower;
+    this->to_upper = &to_upper;
+    this->trim = &trim;
+    this->substring = &substring;
+    this->reverse = &reverse;
+    this->replace = &replace;
 }
 
 void string_init(string_t *this, const char *s)

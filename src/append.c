@@ -3,6 +3,10 @@
 static string_t *append_s(string_t *this, const string_t *ap);
 static string_t *append_c(string_t *this, const char *ap);
 
+/*
+    Append a string ap at the end of this struct
+    ap must be another string_t struct
+*/
 static string_t *append_s(string_t *this, const string_t *ap)
 {
     char *str =
@@ -16,6 +20,10 @@ static string_t *append_s(string_t *this, const string_t *ap)
     return this;
 }
 
+/*
+    Append a string ap at the end of this struct
+    ap must be a char *
+*/
 static string_t *append_c(string_t *this, const char *ap)
 {
     char *str =

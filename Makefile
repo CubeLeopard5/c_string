@@ -5,6 +5,8 @@
 ## script to build lib
 ##
 
+SRC			=	main.c
+
 STRING_SRC	=	src/string_init.c		\
 				src/string_destroy.c	\
 				
@@ -23,7 +25,7 @@ NAME		=	string
 
 TEST_NAME 	=	string_tests
 
-OBJS		=	$(STRING_SRC:.c=.o)
+OBJS		=	$(SRC:.c=.o) $(STRING_SRC:.c=.o)
 
 TEST_OBJS 	= $(STRING_SRC:.c=.o) $(TEST_SRC:.c=.o)
 
