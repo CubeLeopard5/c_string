@@ -26,6 +26,7 @@
 #include "substring.c"
 #include "reverse.c"
 #include "replace.c"
+#include "split.c"
 
 void init_struct(string_t *this)
 {
@@ -54,6 +55,7 @@ void init_struct(string_t *this)
     this->substring = &substring;
     this->reverse = &reverse;
     this->replace = &replace;
+    this->split = &split;
 }
 
 void string_init(string_t *this, const char *s)
