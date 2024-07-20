@@ -1,9 +1,9 @@
 #include "include.h"
 
-static string_t substring(string_t *s, size_t start, size_t length);
+static string_t substring(const string_t *s, size_t start, size_t length);
 
 // Function to extract a substring
-static string_t substring(string_t *s, size_t start, size_t length)
+static string_t substring(const string_t *s, size_t start, size_t length)
 {
     string_t result;
 

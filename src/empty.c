@@ -1,8 +1,8 @@
 #include "include.h"
 
-static int empty(const string_t *this);
+static int is_empty(const string_t *this);
 
-static int empty(const string_t *this)
+static int is_empty(const string_t *this)
 {
     if (!this || !this->str)
         return 1;

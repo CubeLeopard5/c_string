@@ -12,6 +12,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 typedef struct string_s
 {
@@ -26,9 +27,10 @@ typedef struct string_s
     int (*size)(const struct string_s *this);
     int (*compare_s)(const struct string_s *this, const struct string_s *str);
     int (*compare_c)(const struct string_s *this, const char *str);
-    size_t (*copy)(const struct string_s *this, char *s, size_t n, size_t pos);
+    size_t (*copy_c)(const struct string_s *this, char *s, size_t n, size_t pos);
+    size_t (*copy_s)(const struct string_s *this, const struct string_s *str, size_t n, size_t pos);
     const char *(*c_str)(const struct string_s *this);
-    int (*empty)(const struct string_s *this);
+    int (*is_empty)(const struct string_s *this);
     int (*find_s)(const struct string_s *this,
     const struct string_s *str, size_t pos);
     int (*find_c)(const struct string_s *this, const char *str, size_t pos);

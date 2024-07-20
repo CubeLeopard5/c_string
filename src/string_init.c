@@ -39,8 +39,8 @@ void init_struct(string_t *this)
     this->size = &size;
     this->compare_s = &compare_s;
     this->compare_c = &compare_c;
-    this->copy = &copy;
-    this->empty = &empty;
+    this->copy_c = &copy_c;
+    this->is_empty = &is_empty;
     this->c_str = &c_str;
     this->find_c = &find_c;
     this->find_s = &find_s;

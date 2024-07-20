@@ -1,9 +1,9 @@
 #include "include.h"
 
-static string_t *split(string_t *s, const char delimiter, size_t *count);
+static string_t *split(const string_t *s, const char delimiter, size_t *count);
 
 // Function to split the string into an array of string_t based on a delimiter
-static string_t *split(string_t *s, const char delimiter, size_t *count)
+static string_t *split(const string_t *s, const char delimiter, size_t *count)
 {
     if (!s->str) {
         *count = 0;
