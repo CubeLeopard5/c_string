@@ -22,6 +22,8 @@ TEST_SRC	=	tests/at.c				\
 				tests/size.c			\
 				tests/ends_with.c		\
 				tests/replace.c			\
+				tests/reverse.c			\
+				tests/split.c			\
 
 NAME		=	string
 
