@@ -6,7 +6,8 @@ int main(void)
 
     string_init(&s, "abcdefghijklmnopqrstuvwxyz");
 
-    printf("%d\n", s.find_c(&s, "mno", 20));
+    s.replace(&s, "a", "z");
+    printf("%s", s.str);
 
     string_destroy(&s);
 

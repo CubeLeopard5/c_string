@@ -5,38 +5,50 @@ static string_t *replace(string_t *s, const char *old_sub, const char *new_sub);
 // Function to replace all occurrences of a substring
 static string_t *replace(string_t *s, const char *old_sub, const char *new_sub)
 {
-    if (!s->str)
+    if (!s->str || !old_sub || !new_sub) {
         return s;
+    }
+
     size_t old_len = strlen(old_sub);
     size_t new_len = strlen(new_sub);
-    char *result = NULL;
-    size_t count = 0;
-    char *temp = s->str;
-    char *current = NULL;
 
-    while ((temp = strstr(temp, old_sub))) {
-        ++count;
-        temp += old_len;
-    }
-    if (count == 0)
+    if (old_len == 0) {
         return s;
-    result = malloc(strlen(s->str) + (new_len - old_len) * count + 1);
+    }
+
+    size_t count = 0;
+    char *tmp = s->str;
+    while ((tmp = strstr(tmp, old_sub))) {
+        count++;
+        tmp += old_len;
+    }
+
+    if (count == 0) {
+        return s;
+    }
+
+    size_t new_str_len = strlen(s->str) + count * (new_len - old_len);
+    char *result = malloc(new_str_len + 1);
     if (!result) {
         return s;
     }
-    current = result;
-    temp = s->str;
-    while ((temp = strstr(temp, old_sub))) {
-        size_t len = temp - s->str;
-        strncpy(current, s->str, len);
-        current += len;
-        strncpy(current, new_sub, new_len);
-        current += new_len;
-        temp += old_len;
-        s->str = temp;
+
+    char *current_pos = result;
+    tmp = s->str;
+    char *next_occurrence;
+
+    while ((next_occurrence = strstr(tmp, old_sub))) {
+        size_t segment_len = next_occurrence - tmp;
+        memcpy(current_pos, tmp, segment_len);
+        current_pos += segment_len;
+        memcpy(current_pos, new_sub, new_len);
+        current_pos += new_len;
+        tmp = next_occurrence + old_len;
     }
-    strcpy(current, s->str);
+    strcpy(current_pos, tmp);
+
     free(s->str);
     s->str = result;
+
     return s;
 }

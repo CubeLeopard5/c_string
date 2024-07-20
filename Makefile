@@ -20,6 +20,8 @@ TEST_SRC	=	tests/at.c				\
 				tests/find.c			\
 				tests/insert.c			\
 				tests/size.c			\
+				tests/ends_with.c		\
+				tests/replace.c			\
 
 NAME		=	string
 

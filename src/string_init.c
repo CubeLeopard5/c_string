@@ -40,6 +40,7 @@ void init_struct(string_t *this)
     this->compare_s = &compare_s;
     this->compare_c = &compare_c;
     this->copy_c = &copy_c;
+    this->copy_s = &copy_s;
     this->is_empty = &is_empty;
     this->c_str = &c_str;
     this->find_c = &find_c;
