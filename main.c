@@ -4,10 +4,10 @@ int main(void)
 {
     string_t s;
 
-    string_init(&s, "abcdefghijklmnopqrstuvwxyz");
+    string_init(&s, "asbcdefghsijklmnopqrstuvwxyzs");
 
-    s.replace(&s, "a", "z");
-    printf("%s", s.str);
+    string_t t = s.select_s(&s, 's');
+    printf("%s", t.str);
 
     string_destroy(&s);
 

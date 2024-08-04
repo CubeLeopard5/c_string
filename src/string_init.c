@@ -27,6 +27,7 @@
 #include "reverse.c"
 #include "replace.c"
 #include "split.c"
+#include "select.c"
 
 void init_struct(string_t *this)
 {
@@ -53,6 +54,7 @@ void init_struct(string_t *this)
     this->to_lower = &to_lower;
     this->to_upper = &to_upper;
     this->trim = &trim;
+    this->select_s = &select_s;
     this->substring = &substring;
     this->reverse = &reverse;
     this->replace = &replace;

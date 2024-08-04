@@ -44,6 +44,7 @@ typedef struct string_s
     struct string_s *(*to_upper)(struct string_s *s);
     struct string_s *(*trim)(struct string_s *s);
     struct string_s (*substring)(const struct string_s *s, size_t start, size_t length);
+    struct string_s (*select_s)(const struct string_s *s, char c);
     struct string_s *(*reverse)(struct string_s *s);
     struct string_s *(*replace)(struct string_s *s, const char *old_sub, const char *new_sub);
     struct string_s *(*split)(const struct string_s *s, const char delimiter, size_t *count);

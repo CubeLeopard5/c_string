@@ -44,6 +44,13 @@ CFLAGS = -Wall -Wextra -g3 -I ./include/
 
 TEST_FLAGS = -I ./include/ -lcriterion;
 
+STATIC_LIB_NAME	=    libstring.a
+
+$(STATIC_LIB_NAME):    $(OBJ)
+	ar rc  $(STATIC_LIB_NAME) $(OBJ)
+	mv  $(STATIC_LIB_NAME) ../
+	cp ./include/include.h ../../include/my_string.h
+
 all:	$(NAME) $(TEST_NAME)
 
 $(NAME):	$(OBJS)
@@ -53,10 +60,10 @@ $(TEST_NAME):	$(TEST_OBJS)
 	$(CC) -o $(TEST_NAME) $(TEST_OBJS) $(CFLAGS) $(TEST_FLAGS)
 
 clean:
-	rm -f $(OBJS) $(TEST_OBJS)
+	rm -f $(OBJS) $(TEST_OBJS) ../$(STATIC_LIB_NAME)
 
 fclean:	clean
-	$(RM) $(NAME) $(TEST_NAME)
+	$(RM) $(NAME) $(TEST_NAME) ../$(STATIC_LIB_NAME)
 
 re:		fclean all
 
